@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Philately Connect</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img\stamps\official wallpaper.png" alt="Philately Connect Logo">
+            <h1>Philately Connect</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#catalog"><i class="fas fa-book"></i> Catalog</a></li>
+                <li><a href="#cancellations"><i class="fas fa-stamp"></i> Cancellations</a></li>
+                <li><a href="#community"><i class="fas fa-users"></i> Community</a></li>
+                <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <button id="login-btn">Login</button>
+            <button id="signup-btn">Sign Up</button>
+            <div id="cart-icon"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></div>
+        </div>
+    </header>
+
+    <div class="landing-page">
+        <div class="landing-text">
+            <h2>Indian Post Stamps Website</h2>
+        </div>
+        <div class="landing-image">
+            <img src="img\stamps\official wallpaper.png" alt="Landing Image">
+        </div>
+    </div>
+
+    <main>
+        <section id="history" class="zoom-out">
+            <h2>History of Indian Stamps</h2>
+            <p>Indian stamps have a rich history that dates back to the 19th century. The first stamp issued in India was the "Scinde Dawk" in 1852, which was a circular design in red, white, and blue. This was followed by the famous "Four Annas" stamp in 1854, which was the first multicolored stamp in the world.</p>
+            <p>Over the years, Indian stamps have depicted a wide range of themes, including historical events, cultural heritage, and notable personalities. The stamps have also evolved in terms of design and printing techniques, reflecting the advancements in technology and the changing tastes of collectors.</p>
+            <p>Today, Indian stamps are highly sought after by philatelists around the world, and they continue to be a popular way to commemorate important events and milestones in the country's history.</p>
+        </section>
+
+        <section id="catalog" class="zoom-in">
+            <h2>Rare Stamps</h2>
+            <div id="catalog-items" class="grid-container">
+                <!-- Items will be dynamically populated here -->
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="feature-container">
+                <div class="feature-item">Store</div>
+                <div class="feature-item">Account</div>
+                <div class="feature-item">Status</div>
+                <div class="feature-item">Collection Book</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>Philately Connect is dedicated to serving philatelists across India.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#catalog">Catalog</a></li>
+                    <li><a href="#cancellations">Cancellations</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#education">Education</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: info@philatelyconnect.com</p>
+                <p>Phone: +91 1234567890</p>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2023 Philately Connect. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

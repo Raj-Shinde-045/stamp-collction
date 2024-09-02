@@ -1,0 +1,634 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: rgba(51, 51, 51, 0.8); /* Semi-dark font color */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.9)); /* Semi-white gradient background */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    width: 100vw; /* Ensure body takes full viewport width */
+}
+
+header {
+    background: linear-gradient(to right, rgba(34, 34, 34, 0.9), rgba(85, 85, 85, 0.9)); /* Professional dark grey gradient */
+    color: rgba(255, 255, 255, 0.9); /* Semi-white text color */
+    padding: 1rem 2rem; /* Add padding to the header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100vw; /* Full viewport width */
+    box-sizing: border-box; /* Include padding in width calculation */
+    top: 0;
+    z-index: 1000;
+    border-bottom-left-radius: 10px; /* Rounded bottom left corner */
+    border-bottom-right-radius: 10px; /* Rounded bottom right corner */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+    animation: floatAnimation 3s ease-in-out infinite;
+}
+
+.logo h1 {
+    color: rgba(255, 255, 255, 0.9); /* Semi-white text color */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    margin: 0; /* Remove default margin */
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: rgba(255, 255, 255, 0.9); /* Semi-white text color */
+    text-decoration: none;
+    padding: 0.5rem 1rem; /* Add padding to the links */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    position: relative;
+    overflow: visible; /* Change from hidden to visible */
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.7);
+    transform: scaleX(0); /* Start with no width */
+    transform-origin: right; /* Start transform from right side */
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1); /* Expand to full width */
+    transform-origin: left; /* Expand from left side */
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Add hover effect */
+    border-radius: 5px; /* Rounded corners for hover effect */
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+}
+
+.user-actions button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-white background */
+    color: rgba(34, 34, 34, 0.9); /* Dark grey text color */
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners for buttons */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.user-actions button:hover {
+    background-color: rgba(200, 200, 200, 0.9); /* Light grey background on hover */
+}
+
+#cart-icon {
+    margin-left: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+#cart-icon i {
+    margin-right: 5px; /* Add spacing between icon and text */
+}
+
+#cart-icon:hover {
+    animation: wiggle 0.3s ease;
+}
+
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    background: url('https://akm-img-a-in.tosshub.com/indiatoday/images/story/201708/india-post-xl_081117113005.jpg?VersionId=ToB_minp6YT2wimLVFXdB95izajwEwJd') no-repeat center center/cover; /* Background wallpaper */
+    text-align: center;
+    position: relative; /* Ensure z-index works */
+    background-attachment: fixed;
+}
+
+.landing-text {
+    color: rgba(255, 255, 255, 0.9); /* Semi-white text */
+    font-size: 2rem;
+    font-family: 'Pacifico', cursive; /* Cool font for landing page text */
+    margin-bottom: 20px;
+    background: rgba(233, 229, 229, 0.7); /* Darker semi-transparent background for text */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for better contrast */
+    z-index: 1; /* Bring text to the front */
+    animation: rotateIn 1s ease-out;
+}
+
+.landing-image img {
+    max-width: 100%;
+    height: auto;
+    z-index: 0; /* Ensure image stays behind the text */
+}
+
+main {
+    padding: 20px;
+    margin-top: 80px; /* To avoid content being hidden behind fixed header */
+    margin-bottom: 40px; /* Reduce margin to avoid large gap */
+}
+
+section {
+    margin-bottom: 40px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    filter: blur(0); /* Remove blur effect */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+section.active {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+}
+
+h1, h2, h3 {
+    color: rgba(51, 51, 51, 0.8); /* Semi-dark font color */
+}
+
+.zoom-out {
+    transform: scale(0.95);
+}
+
+.zoom-in {
+    transform: scale(1.05);
+}
+
+@keyframes zoomOut {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(1.05);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Different background colors for each section */
+#history {
+    background: linear-gradient(to bottom, rgba(240, 248, 255, 0.9), rgba(220, 230, 240, 0.9)); /* Alice Blue gradient */
+}
+
+#catalog {
+    background: linear-gradient(to bottom, rgba(230, 230, 250, 0.9), rgba(210, 210, 230, 0.9)); /* Lavender gradient */
+}
+
+#features {
+    background: linear-gradient(to bottom, rgba(255, 250, 205, 0.9), rgba(240, 240, 180, 0.9)); /* Lemon Chiffon gradient */
+    margin-top: 40px; /* Add margin to separate from previous section */
+    margin-bottom: 20px; /* Reduce margin to avoid large gap */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.item {
+    border: 1px solid rgba(221, 221, 221, 0.9); /* Semi-white border */
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.item img {
+    max-width: 100%;
+    height: auto;
+    min-height: 200px; /* Adjust this value as needed */
+    object-fit: cover;
+    background-color: #f0f0f0; /* Light grey background for image placeholders */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease;
+}
+
+.item:hover img {
+    transform: scale(1.05);
+}
+
+.feature-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    border-radius: 20px; /* Add rounded corners to the container */
+    overflow: hidden; /* Ensure content doesn't overflow rounded corners */
+    padding: 20px; /* Add some padding to the container */
+    background-color: rgba(255, 255, 255, 0.5); /* Optional: add a slight background */
+}
+
+.feature-item {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid rgba(221, 221, 221, 0.9);
+    text-align: center;
+    margin: 0 10px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.9));
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 15px; /* Add rounded corners */
+    overflow: hidden; /* Ensure content doesn't overflow rounded corners */
+}
+
+.feature-item:hover {
+    transform: translateY(-5px) scale(1.05);
+    background-color: rgba(13, 241, 154, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: pulseGlow 1.5s infinite;
+}
+
+footer {
+    background: linear-gradient(to right, rgba(74, 74, 74, 0.9), rgba(100, 100, 100, 0.9)); /* Dark grey gradient */
+    color: rgba(255, 255, 255, 0.9); /* Semi-white text color */
+    padding: 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-section {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.footer-section h4 {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.footer-section h4::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.7);
+    margin-top: 5px;
+    animation: expandWidth 0.5s ease-out forwards;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+    color: rgba(255, 255, 255, 0.9); /* Semi-white text color */
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(74, 74, 74, 0.9), rgba(100, 100, 100, 0.9)); /* Dark grey gradient */
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+.lazy-image {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.lazy-image.loaded {
+    opacity: 1;
+}
+
+.lazy-image[src="placeholder.jpg"] {
+    opacity: 0.2;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Animate section headers */
+section h2 {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+section.active h2 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(13, 241, 154, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(13, 241, 154, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(13, 241, 154, 0);
+    }
+}
+
+@keyframes floatAnimation {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes rotateIn {
+    from { transform: rotateY(-90deg); opacity: 0; }
+    to { transform: rotateY(0); opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromRight {
+    from { transform: translateX(50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes expandWidth {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Ensure all sections don't cause horizontal scroll */
+main, section, .grid-container, .feature-container {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Adjust grid for smaller screens */
+@media (max-width: 1200px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .user-actions {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+}
+
+/* Responsive design improvements */
+@media (max-width: 1200px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .feature-container {
+        flex-wrap: wrap;
+    }
+    
+    .feature-item {
+        flex-basis: 45%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .user-actions {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    .landing-page {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .landing-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-item {
+        flex-basis: 100%;
+    }
+
+    .landing-text {
+        padding: 10px;
+    }
+
+    .landing-text h2 {
+        font-size: 1.2rem;
+    }
+
+    section {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .user-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .user-actions button, #cart-icon {
+        margin: 5px 0;
+    }
+
+    .logo h1 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Improve touch targets for mobile devices */
+@media (hover: none) {
+    nav ul li a, .user-actions button, #cart-icon {
+        padding: 10px;
+    }
+}
+
+/* Ensure images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Improve readability on smaller screens */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Ensure content is not hidden under fixed header on small screens */
+@media (max-width: 768px) {
+    main {
+        margin-top: 120px;
+    }
+}
+
+/* Improve performance on mobile devices */
+@media (max-width: 768px) {
+    .animation-heavy {
+        animation: none;
+        transform: none;
+    }
+}
+
+/* Ensure proper display on high-resolution screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* You can add specific styles for high-res screens here if needed */
+}
