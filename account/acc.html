@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - Philately Connect</title>
+    <link rel="stylesheet" href="acc.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../img/stamps/official wallpaper.png" alt="Philately Connect Logo">
+            <h1>Philately Connect</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../HomePage/home.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#"><i class="fas fa-envelope"></i> Messages</a></li>
+                <li><a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="profile-container">
+            <section class="profile">
+                <div class="profile-header">
+                    <img src="../account/img/spiderman.jpg" alt="Profile Picture" id="profile-pic">
+                    <div class="profile-info">
+                        <h2 id="username">Username</h2>
+                        <p id="bio">User bio goes here...</p>
+                        <button id="edit-profile">Edit Profile</button>
+                    </div>
+                </div>
+                <div class="profile-stats">
+                    <div></div>
+                        <strong id="posts-count">0</strong> posts
+                    </div>
+                    <div>
+                        <strong id="followers-count">0</strong> followers
+                    </div>
+                    <div>
+                        <strong id="following-count">0</strong> following
+                    </div>
+                </div>
+            </section>
+            <nav class="profile-nav">
+                <button class="active" data-target="personal-stamps">Personal Stamps</button>
+                <button data-target="collab-stamps">Collaboration Stamps</button>
+                <button data-target="settings">Settings</button>
+            </nav>
+        </div>
+
+        <div class="content-container">
+            <section id="personal-stamps" class="stamp-grid content-section">
+                <!-- Personal stamps will be dynamically added here -->
+            </section>
+
+            <section id="collab-stamps" class="stamp-grid content-section" style="display: none;">
+                <!-- Collaboration stamps will be dynamically added here -->
+            </section>
+
+            <section id="settings" class="content-section" style="display: none;">
+                <h3>Account Settings</h3>
+                <ul>
+                    <li><a href="#">Change Password</a></li>
+                    <li><a href="#">Privacy Settings</a></li>
+                    <li><a href="#">Notification Preferences</a></li>
+                    <li><a href="#">Linked Accounts</a></li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Philately Connect. All rights reserved.</p>
+    </footer>
+
+    <script src="acc.js"></script>
+
+    <!-- Replace the existing template with this simplified version -->
+    <template id="stamp-template">
+        <div class="stamp-item">
+            <div class="image-container">
+                <!-- Icon will be inserted here by JavaScript -->
+            </div>
+            <p class="stamp-name"></p>
+            <p class="stamp-year"></p>
+            <p class="stamp-price"></p>
+            <p class="stamp-category"></p>
+        </div>
+    </template>
+</body>
+</html>

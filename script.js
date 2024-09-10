@@ -169,3 +169,21 @@ function animateOnScroll() {
 
     animatedElements.forEach(el => observer.observe(el));
 }
+
+// Add this at the end of the file
+document.addEventListener('DOMContentLoaded', function() {
+    const loginBtn = document.getElementById('login-btn');
+    const signupBtn = document.getElementById('signup-btn');
+    
+    if (loginBtn) {
+        loginBtn.addEventListener('click', function() {
+            window.location.href = 'Login/login.html';
+        });
+    }
+    
+    if (signupBtn) {
+        signupBtn.addEventListener('click', function() {
+            window.location.href = 'signup/signup.html';
+        });
+    }
+});

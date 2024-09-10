@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philately Connect - Home</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../img/stamps/official wallpaper.png" alt="Philately Connect Logo">
+            <h1>Philately Connect</h1>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for stamps...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../account/acc.html" id="account-btn"><i class="fas fa-user"></i> Account</a></li>
+                <li><a href="#"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                <li><a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Welcome to Philately Connect</h2>
+            <p>Discover the world of Indian stamps</p>
+        </section>
+
+        <section class="featured-categories">
+            <h3>Featured Categories</h3>
+            <div class="category-grid">
+                <div class="category-item">
+                    <img src="img/historical.jpg" alt="Historical Stamps">
+                    <p>Historical Stamps</p>
+                </div>
+                <div class="category-item">
+                    <img src="img/nature.jpg" alt="Nature Stamps">
+                    <p>Nature Stamps</p>
+                </div>
+                <div class="category-item">
+                    <img src="img/cultural.jpg" alt="Cultural Stamps">
+                    <p>Cultural Stamps</p>
+                </div>
+                <div class="category-item">
+                    <img src="img/comerative.jpg" alt="Commemorative Stamps">
+                    <p>Commemorative Stamps</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-products">
+            <h3>Explore Stamps</h3>
+            <div class="product-grid" id="featured-products">
+                <!-- Products will be dynamically added here -->
+            </div>
+            <div id="pagination-controls">
+                <!-- Pagination buttons will be dynamically added here -->
+            </div>
+        </section>
+
+        <!-- Add this template element -->
+        <template id="stamp-template">
+            <div class="product-item">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="image-container">
+                            <!-- Icon will be inserted here by JavaScript -->
+                        </div>
+                        <p class="stamp-name"></p>
+                        <p class="stamp-year"></p>
+                        <p class="stamp-price"></p>
+                        <p class="stamp-category"></p>
+                    </div>
+                    <div class="card-back">
+                        <h4 class="stamp-name"></h4>
+                        <p class="stamp-description"></p>
+                        <p class="stamp-year"></p>
+                        <p class="stamp-price"></p>
+                        <p class="stamp-category"></p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>Philately Connect is dedicated to serving philatelists across India.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Catalog</a></li>
+                    <li><a href="#">Cancellations</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Education</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: info@philatelyconnect.com</p>
+                <p>Phone: +91 1234567890</p>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2024 Philately Connect. All rights reserved.</p>
+    </footer>
+
+    <script src="home.js"></script>
+</body>
+</html>
